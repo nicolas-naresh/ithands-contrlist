@@ -1,6 +1,8 @@
 <?php namespace Ithands\Controlist;
 
 use Illuminate\Support\ServiceProvider;
+use Ithands\Controlist\Models\Permission;
+use Ithands\Controlist\Models\Role;
 
 class ControlistServiceProvider extends ServiceProvider {
 
@@ -19,11 +21,13 @@ class ControlistServiceProvider extends ServiceProvider {
 	public function boot()
 	{
 		$this->package('ithands/controlist');
-		$provider = $this->getProviderClass();
-
-		$this->app->bind('Controlist', function() use ($provider) {
-	    return new Controlist(new $provider);
+		//$provider = $this->getProviderClass();
+		$this->app->bind('Permission', function(){
+			return new Permission();
 		});
+		// $this->app->bind('Controlist', function() use ($provider) {
+	 //    return new Controlist(new $provider);
+		// });
 	}
 
 	private function getProviderClass()

@@ -1,4 +1,4 @@
-<?php namespace Ithands\Database;
+<?php namespace Ithands\Controlist\Models;
 
 	use Illuminate\Database\Eloquent\Model as Eloquent;
 
