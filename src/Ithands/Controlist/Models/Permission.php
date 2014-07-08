@@ -8,7 +8,7 @@
       return $this->belongsToMany('Permission');
     }
     
-		public function fetchAllPermissions(){
+		public static function fetchAllPermissions(){
     	echo app_path().'/controllers';die;
     }
 	}

@@ -19,6 +19,16 @@ class ControlistServiceProvider extends ServiceProvider {
 	public function boot()
 	{
 		$this->package('ithands/controlist');
+		$provider = $this->getProviderClass();
+
+		$this->app->bind('Controlist', function() use ($provider) {
+	    return new Controlist(new $provider);
+		});
+	}
+
+	private function getProviderClass()
+	{
+		return 'Ithands\Controlist\ControlistProviders\\' . ucfirst("dB") . 'Provider';
 	}
 
 	/**
